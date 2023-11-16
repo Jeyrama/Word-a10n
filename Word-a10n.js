@@ -36,3 +36,5 @@ function replace(match) {return match[0] + (match.length - 2) + match[match.leng
 function abbreviate(string) {
   return string.replace(find, replace);
 }
+
+// or
