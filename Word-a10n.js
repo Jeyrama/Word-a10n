@@ -31,10 +31,19 @@ Example:
 // Solution
 
 let find = /[a-z]{4,}/gi;
-function replace(match) {return match[0] + (match.length - 2) + match[match.length - 1];}
+function replace(match) { return match[0] + (match.length - 2) + match[match.length - 1]; }
 
 function abbreviate(string) {
   return string.replace(find, replace);
 }
 
 // or
+
+function abbreviate(string) {
+  return string.replace(/\w*/g,function(word) {
+    if (word.length >= 4)
+      return word[0] + (word.length - 2) + word.slice(-1);
+    else
+      return word;
+  });
+}
